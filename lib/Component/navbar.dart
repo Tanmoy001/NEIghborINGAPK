@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +7,10 @@ import 'package:neighbouring/Component/forecast.dart';
 import 'package:neighbouring/Component/map.dart';
 import 'package:neighbouring/Component/places.dart';
 class Navbar extends StatefulWidget {
-  String ?lat;
-  String ? long;
+  final String lat;
+  final String long;
 
-   Navbar({super.key,required this.lat,required this.long});
+  const Navbar({Key? key, required this.lat, required this.long}) : super(key: key);
 
   @override
   State<Navbar> createState() => _NavbarState();
@@ -36,7 +35,6 @@ class _NavbarState extends State<Navbar> {
     // TODO: implement initState
 if(widget.lat== (22.5726).toString()) {
   requestLocationPermission();
-  debugPrint("ifpart");
 }
 
   super.initState();
@@ -47,7 +45,7 @@ if(widget.lat== (22.5726).toString()) {
     final PermissionStatus status = await location.requestPermission();
     setState(() {
       _permissionStatus=status;
-      debugPrint(_permissionStatus.toString());
+       debugPrint(_permissionStatus.toString());
     });
     if(status==PermissionStatus.granted){
       getLocation();
@@ -59,7 +57,7 @@ if(widget.lat== (22.5726).toString()) {
       final LocationData locationData = await location.getLocation();
       setState(() {
         _locationData = locationData;
-        debugPrint(_locationData.latitude.toString());
+
         updateForecaste(_locationData.latitude.toString(), _locationData.longitude.toString());
       });
     } catch (e) {

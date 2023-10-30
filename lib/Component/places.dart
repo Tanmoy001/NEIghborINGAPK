@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:neighbouring/model/food_model.dart';
 import 'package:neighbouring/service/place_api.dart';
 class Places extends StatefulWidget {
-  String? lat;
-  String?long;
-  Places({super.key,required this.lat,required this.long});
+  final String? lat;
+  final String? long;
+  const Places({Key? key, required this.lat, required this.long}) : super(key: key);
+
 
   @override
   State<Places> createState() => _PlacesState();
@@ -43,11 +44,9 @@ class _PlacesState extends State<Places> {
 //debugPrint(fivestarFoodList.toString());
     }
     );
-    debugPrint(foodlist[0].cuisine?[0]["name"].toString());
   }
   void filterFoodByRating(int value) {
     setState(() {
-      debugPrint(value.toString());
       foodlist = foodlist.where((food) {
         if (food.rating != null) {
           double? rating = double.tryParse(food.rating!);

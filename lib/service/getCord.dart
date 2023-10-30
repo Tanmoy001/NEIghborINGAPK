@@ -15,9 +15,7 @@ class getCord {
         uri,
 
       );
-      debugPrint("api req");
       if (response.statusCode == 200) {
-        debugPrint("api data");
         var data = jsonDecode(response.body);
         // debugPrint(data.toString());
         lat = data["latitude"].toString();

@@ -6,9 +6,10 @@ import 'package:neighbouring/service/getCord.dart';
 import 'package:neighbouring/service/weatherapi.dart';
 
 class Forecaste extends StatefulWidget {
-  String? lat;
-  String? long;
-  Forecaste({super.key, required this.lat, required this.long});
+ final String? lat;
+ final String? long;
+ const Forecaste({Key? key, required this.lat, required this.long}) : super(key: key);
+
   @override
   State<Forecaste> createState() => _ForecasteState();
 }
@@ -51,8 +52,7 @@ class _ForecasteState extends State<Forecaste> {
     getCord newclass = getCord();
     await newclass.getCordiData(text);
     latitude = newclass.lat.toString();
-    debugPrint("from getcord");
-    debugPrint(latitude.toString());
+
     longitude = newclass.long.toString();
   }
 
@@ -101,11 +101,10 @@ class _ForecasteState extends State<Forecaste> {
                           GestureDetector(
                             onTap: () async {
                               if ((search.text).replaceAll(' ', '') == '') {
-                                debugPrint('blank');
+                                // debugPrint('blank');
                               } else {
                                 await getCondinate(search.text);
-                                debugPrint("Ontap postition");
-                                debugPrint(latitude.toString());
+
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(

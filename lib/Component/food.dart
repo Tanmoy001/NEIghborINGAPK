@@ -6,9 +6,9 @@ import 'package:neighbouring/service/food_api.dart';
 import 'package:neighbouring/model/food_model.dart';
 
 class Food extends StatefulWidget {
-  String? lat;
-  String? long;
-  Food({super.key, required this.lat, required this.long});
+  final String? lat;
+  final String? long;
+  const Food({Key? key, required this.lat, required this.long}) : super(key: key);
 
   @override
   State<Food> createState() => _FoodState();
@@ -39,12 +39,12 @@ class _FoodState extends State<Food> {
       }).toList();
 //debugPrint(fivestarFoodList.toString());
     });
-    debugPrint(foodlist[0].cuisine?[0]["name"].toString());
+
   }
 
   void filterFoodByRating(int value) {
     setState(() {
-      debugPrint(value.toString());
+
       foodlist = foodlist.where((food) {
         if (food.rating != null) {
           double? rating = double.tryParse(food.rating!);
