@@ -3,30 +3,40 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart'; // This is for latitude and longitude coordinates.
 import 'package:url_launcher/url_launcher.dart';
 class MapScreen extends StatefulWidget {
-  const MapScreen({super.key});
+  String?lat;
+  String ?long;
+  MapScreen({super.key,required this.lat,required this.long});
 
   @override
   State<MapScreen> createState() => _MapScreenState();
 }
 
 class _MapScreenState extends State<MapScreen> {
+
   @override
   Widget build(BuildContext context) {
-    List<Marker> markers = [
-      Marker(
-        width: 30.0,
-        height: 30.0,
-        point: LatLng(51.509364, -0.128928),
-        builder: (ctx) => Container(
-          child: Icon(
-            Icons.location_on,
-            size: 30.0,
-            color: Colors.blue,
+    List<Marker> markers = [];
+
+    double? latitude = double.tryParse(widget.lat!);
+    double? longitude = double.tryParse(widget.long!);
+
+
+    if (latitude != null && longitude != null) {
+      markers.add(
+        Marker(
+          width: 30.0,
+          height: 30.0,
+          point: LatLng(latitude, longitude),
+          builder: (ctx) => Container(
+            child: const Icon(
+              Icons.location_on,
+              size: 30.0,
+              color: Colors.blue,
+            ),
           ),
         ),
-      ),
-      // Add more markers as needed.
-    ];
+      );
+    }
     return  Scaffold(
       appBar: AppBar(
 
@@ -42,26 +52,29 @@ class _MapScreenState extends State<MapScreen> {
             children: [
               Card(
                 elevation: 3.0,
-                margin: EdgeInsets.fromLTRB(10, 8,10, 5),
+                margin: const EdgeInsets.fromLTRB(10, 8,10, 5),
                 child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 15,horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 20),
 
-                    child: Center(child: Text("Your Position On The Map ",style: TextStyle(
+                    child: const Center(child: Text("Your Position On The Map ",style: TextStyle(
                       color: Colors.brown,
                       fontFamily: "CedarvilleCursive"
                     ),))),
               ),
               Container(
                 height: MediaQuery.of(context).size.height,
-                margin: EdgeInsets.fromLTRB(10, 5, 10, 0),
+                margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
                 decoration: BoxDecoration(
                   borderRadius:BorderRadius.circular(10)
                 ),
 
 
+
                 child: FlutterMap(
+
                   options: MapOptions(
-                    center: LatLng(51.509364, -0.128928),
+
+                    center: LatLng(latitude??20.5937,longitude?? 78.9629),
                     zoom: 11.2,
                   ),
                   children: [
