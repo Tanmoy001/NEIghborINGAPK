@@ -57,15 +57,15 @@ class _MapScreenState extends State<MapScreen> {
                     padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 20),
 
                     child: const Center(child: Text("Your Position On The Map ",style: TextStyle(
-                      color: Colors.brown,
-                      fontFamily: "CedarvilleCursive"
+                        color: Colors.brown,
+                        fontFamily: "CedarvilleCursive"
                     ),))),
               ),
               Container(
                 height: MediaQuery.of(context).size.height,
                 margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
                 decoration: BoxDecoration(
-                  borderRadius:BorderRadius.circular(10)
+                    borderRadius:BorderRadius.circular(10)
                 ),
 
 

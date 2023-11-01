@@ -1,10 +1,11 @@
+import 'package:NEIghborING/Component/navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:neighbouring/Component/navbar.dart';
 
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     routes: {
-      "/":(context)=>  Navbar(lat: (22.5726).toString(), long: (88.3639).toString()),
+      "/":(context)=>Navbar(lat: (22.5726).toString(), long: (88.3639).toString()),
     },
   ));
 }

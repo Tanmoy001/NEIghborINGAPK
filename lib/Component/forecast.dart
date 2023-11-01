@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:neighbouring/Component/navbar.dart';
-import 'package:neighbouring/service/getCord.dart';
-import 'package:neighbouring/service/weatherapi.dart';
+import 'package:NEIghborING/Component/navbar.dart';
+import 'package:NEIghborING/service/getCord.dart';
+import 'package:NEIghborING/service/weatherapi.dart';
 
 class Forecaste extends StatefulWidget {
  final String? lat;

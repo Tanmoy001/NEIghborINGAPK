@@ -2,15 +2,15 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
-import 'package:neighbouring/Component/food.dart';
-import 'package:neighbouring/Component/forecast.dart';
-import 'package:neighbouring/Component/map.dart';
-import 'package:neighbouring/Component/places.dart';
+import 'package:NEIghborING/Component/food.dart';
+import 'package:NEIghborING/Component/forecast.dart';
+import 'package:NEIghborING/Component/map.dart';
+import 'package:NEIghborING/Component/places.dart';
 class Navbar extends StatefulWidget {
-  final String lat;
-  final String long;
-
+  final String? lat;
+  final String? long;
   const Navbar({Key? key, required this.lat, required this.long}) : super(key: key);
+
 
   @override
   State<Navbar> createState() => _NavbarState();

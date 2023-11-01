@@ -2,8 +2,8 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:neighbouring/model/food_model.dart';
-import 'package:neighbouring/service/place_api.dart';
+import 'package:NEIghborING/model/food_model.dart';
+import 'package:NEIghborING/service/place_api.dart';
 class Places extends StatefulWidget {
   final String? lat;
   final String? long;
@@ -124,7 +124,7 @@ class _PlacesState extends State<Places> {
                       children: [
                         const Icon(Icons.location_on,color: Colors.white),
                         Container(
-                          width: MediaQuery.of(context).size.width/2,
+                          width: MediaQuery.of(context).size.width/2.2,
                           child: Text(
                             location,
                             style:const TextStyle(

@@ -2,8 +2,8 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:neighbouring/service/food_api.dart';
-import 'package:neighbouring/model/food_model.dart';
+import 'package:NEIghborING/service/food_api.dart';
+import 'package:NEIghborING/model/food_model.dart';
 
 class Food extends StatefulWidget {
   final String? lat;
@@ -121,7 +121,7 @@ class _FoodState extends State<Food> {
                       children: [
                         const Icon(Icons.location_on, color: Colors.white),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width / 2,
+                          width: MediaQuery.of(context).size.width / 2.2,
                           child: Text(
                             location,
                             style: const TextStyle(
@@ -274,7 +274,7 @@ class _FoodState extends State<Food> {
                                 21.0, // You can adjust the font size as needed
                             fontWeight: FontWeight.w800,
 
-                            color: Color(0xFFF114b5f),
+                            color: Color(0xFFf114b5f),
                             // fontFamily: 'Horizon',
                           ),
                           child: AnimatedTextKit(
@@ -386,11 +386,16 @@ class _FoodState extends State<Food> {
 }
 
 class CardTitle extends StatelessWidget {
-  String imageUrl, location, url, name, ranking, rating;
-  List cuisine;
+  final String imageUrl;
+  final String location;
+  final String url;
+  final String name;
+  final String ranking;
+  final String rating;
+  final List cuisine;
 
-  CardTitle({
-    super.key,
+  const CardTitle({
+    Key? key,
     required this.name,
     required this.url,
     required this.location,
@@ -398,7 +403,7 @@ class CardTitle extends StatelessWidget {
     required this.imageUrl,
     required this.cuisine,
     required this.rating,
-  });
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
